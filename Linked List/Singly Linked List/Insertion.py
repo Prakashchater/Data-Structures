@@ -51,10 +51,35 @@ class SinglyLL:
             new_node.ref = n.ref
             n.ref = new_node
 
+    ##ADD BEFORE NODE
+    def before_node(self, data, x):
+        if self.head is None:
+            print("Linked list is Empty!.")
+            return
+        if x == self.head.data:
+            new_node = Node(data)
+            new_node.ref = self.head
+            self.head = new_node
+            return
+        n = self.head
+        while n.ref is not None:
+            if n.ref.data == x:
+                break
+            n = n.ref
+        if n.ref is None:
+            print("node is not present in the Linked list.")
+        else:
+            new_node = Node(data)
+            new_node.ref = n.ref
+            n.ref = new_node
+
+
+
 
 LL1 = SinglyLL()
 LL1.addBegin(10)
-LL1.after_node(200, 100)
+LL1.after_node(200, 10)
+LL1.before_node(100, 10)
 LL1.add_end(30)
 LL1.printLL()
 
