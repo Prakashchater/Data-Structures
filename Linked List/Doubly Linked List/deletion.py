@@ -177,8 +177,8 @@ if __name__ == '__main__':
     # dLL.add_before(60, 20)
     # dLL.delete_begin()
     # dLL.delete_end()
-    dLL.delete_by_value(10)
+    # dLL.delete_by_value(10)
     dLL.forward_printLL()
-    # print("\n")
-    # dLL.backward_printLL()
+    print("\n")
+    dLL.backward_printLL()
 
