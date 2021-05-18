@@ -1,3 +1,4 @@
+"""
 class Node:
     def __init__(self, data):
         self.data = data
@@ -81,17 +82,81 @@ class CircularLL:
         self.printCLL()
         print("\nSecond Node: ")
         split_list.printCLL()
+"""
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class CircularLL:
+    def __init__(self):
+        self.head = None
+
+    def printCLL(self):
+        if self.head is None:
+            print("CLL is Empty.")
+        else:
+            curr = self.head
+            while curr:
+                print(curr.data, "-->", end=" ")
+                curr = curr.next
+                if curr == self.head:
+                    break
+
+    def push(self, data):
+        curr = self.head
+        new_node = Node(data)
+
+        new_node.next = self.head
+        if self.head is not None:
+            while curr.next != self.head:
+                curr = curr.next
+            curr.next = new_node
+        else:
+            new_node.next = new_node
+        self.head = new_node
+
+    def split_list(self, head1, head2):
+        slow = self.head
+        fast = self.head
+
+        if self.head is None:
+            return
+
+        while fast.next != self.head and fast.next.next != self.head:
+            fast = fast.next.next
+            slow = slow.next
+
+        if fast.next.next == self.head:
+            fast = fast.next
+
+        head1.head = self.head
+
+        if self.head.next != self.head:
+            head2.head = slow.next
+
+        fast.next = slow.next
+
+        slow.next = self.head
 
 
 if __name__ == '__main__':
     cLL = CircularLL()
-    cLL.prepend("B")
-    cLL.prepend("A")
-    cLL.append("C")
-    cLL.append("D")
-    cLL.append("E")
-    cLL.append("F")
-    cLL.append("G")
-    # cLL.printCLL()
-    cLL.splitList()
-    # print(len(cLL))
+    head1 = CircularLL()
+    head2 = CircularLL()
+    cLL.push(5)
+    cLL.push(4)
+    cLL.push(3)
+    cLL.push(2)
+    cLL.push(1)
+    print("Original CLL:")
+    cLL.printCLL()
+
+    cLL.split_list(head1, head2)
+
+    print("\nFirst circular List:")
+    head1.printCLL()
+
+    print("\nSecond CLL: ")
+    head2.printCLL()
