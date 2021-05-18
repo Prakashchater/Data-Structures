@@ -117,34 +117,41 @@ class CircularLL:
             new_node.next = new_node
         self.head = new_node
 
+    #Split two list with Floyd's Algo(Tortoise and Hare algorithm)
     def split_list(self, head1, head2):
-        slow = self.head
+        #Make a two pointers
         fast = self.head
+        slow = self.head
 
         if self.head is None:
             return
-
+        #If the list is even then we have to move the fast --> fast.next.next and slow --> slow.next
         while fast.next != self.head and fast.next.next != self.head:
             fast = fast.next.next
             slow = slow.next
 
+        #If there are even elements in the list then move fast
         if fast.next.next == self.head:
             fast = fast.next
 
+        #Set the Head pointer to first half
         head1.head = self.head
 
+        # Set the head pointer of second half
         if self.head.next != self.head:
             head2.head = slow.next
 
+        #Make the first half
         fast.next = slow.next
 
+        #Make the second half
         slow.next = self.head
-
 
 if __name__ == '__main__':
     cLL = CircularLL()
     head1 = CircularLL()
     head2 = CircularLL()
+    cLL.push(6)
     cLL.push(5)
     cLL.push(4)
     cLL.push(3)
@@ -155,7 +162,7 @@ if __name__ == '__main__':
 
     cLL.split_list(head1, head2)
 
-    print("\nFirst circular List:")
+    print("\nFirst CLL:")
     head1.printCLL()
 
     print("\nSecond CLL: ")
