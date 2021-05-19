@@ -73,67 +73,38 @@ class SinglyLL:
             new_node.ref = n.ref
             n.ref = new_node
 
-    #Reverse a Linked list
 
-    """
-        def reverse_iterative(self):
+    def kth_reverse(self, head, k):
+        if head is None:
+            return None
+        curr = head
+        next = None
         prev = None
-        curr = self.head
-        while curr is not None:
-            nxt = curr.ref
+        count = 0
+
+        while curr is not None and count < k:
+            next = curr.ref
             curr.ref = prev
             prev = curr
-            curr = nxt
-        self.head = prev
+            curr = next
+            count += 1
 
-    def reverse_recursive(self):
-
-        def _reverse_recursive_(curr, prev):
-            if not curr:
-                return prev
-
-            nxt = curr.ref
-            curr.ref = prev
-            prev = curr
-            curr = nxt
-            return _reverse_recursive_(curr, prev)
-        self.head = _reverse_recursive_(curr=self.head, prev=None)
-    """
-
-    def reverse_iterative(self):
-        curr = self.head
-        prev = None
-
-        while curr is not None:
-            nxt = curr.ref
-            curr.ref = prev
-            prev = curr
-            curr = nxt
-        self.head = prev
-
-    def reverse_recursive(self):
-        def reverse_(curr, prev):
-            if not curr:
-                return prev
-            nxt = curr.ref
-            curr.ref = prev
-            prev = curr
-            curr = nxt
-            return reverse_(curr, prev)
-        self.head = reverse_(curr=self.head, prev=None)
+        if next is not None:
+            head.ref = self.kth_reverse(next, k)
+        return prev
 
 
 LL1 = SinglyLL()
-LL1.addBegin(20)
-LL1.addBegin(10)
-LL1.addBegin(0)
-# LL1.after_node(200, 10)
-# LL1.before_node(100, 10)
-LL1.add_end(30)
-LL1.add_end(40)
-LL1.add_end(50)
-# LL1.reverse_iterative()
-LL1.reverse_recursive()
+LL1.addBegin(9)
+LL1.addBegin(8)
+LL1.addBegin(7)
+LL1.addBegin(6)
+LL1.addBegin(5)
+LL1.addBegin(4)
+LL1.addBegin(3)
+LL1.addBegin(2)
+LL1.addBegin(1)
+LL1.head = LL1.kth_reverse(LL1.head, 4)
 LL1.printLL()
 
 
