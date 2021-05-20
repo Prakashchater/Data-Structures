@@ -104,6 +104,7 @@ if __name__ == '__main__':
     LL1.addBegin(20)
     LL1.addBegin(10)
     LL1.add_end(30)
+    LL1.head = LL1.detectLoop(LL1.head)
     LL1.printLL()
 
 
