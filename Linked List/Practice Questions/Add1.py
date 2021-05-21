@@ -1,3 +1,5 @@
+# Time : O(N)     SPACE: O(1)
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -79,5 +81,6 @@ if __name__ == '__main__':
     LL1.addBegin(9)
     LL1.addBegin(9)
     LL1.addBegin(9)
+    LL1.addBegin(1)
     head = LL1.addOne(LL1.head)
     LL1.printLL()
