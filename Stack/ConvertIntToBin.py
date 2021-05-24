@@ -17,20 +17,17 @@ class Stack:
         self.size -= 1
         return self.data.pop()
 
-def reverseString(s, inp):
+def convertIntegerToBinary(s, num):
+    while num > 0:
+        remainder = num % 2
+        s.push(remainder)
+        num = num // 2
 
-    for i in range(len(inp)):
-        s.push(inp[i])
-
-    rev_str = ""
+    bin_num = ""
     while not s.isEmpty():
-        rev_str += s.pop()
-    return rev_str
+        bin_num += str(s.pop())
+    return bin_num
 
-if __name__ == '__main__':
-    s = Stack()
-    inp_str = input("Enter a word: ")
-    print(reverseString(s, inp_str))
-
-
-
+s = Stack()
+n = int(input("Enter a number: "))
+print(convertIntegerToBinary(s, n))
