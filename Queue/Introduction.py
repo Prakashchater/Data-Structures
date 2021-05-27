@@ -80,7 +80,7 @@ print("Removed:", e)    #1st element to be removed is 40.
 from queue import Queue
 
 # Initializing a queue
-q = Queue(maxsize = 3)
+q = Queue(maxsize=3)
 
 # qsize() give the maxsize
 # of the Queue
@@ -112,9 +112,3 @@ print("Full: ", q.full())
 # This would result into Infinite
 # Loop as the Queue is empty.
 # print(q.get())
-
-
-
-
-
-
