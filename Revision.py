@@ -67,7 +67,7 @@
 
 
 
-def printTwinPrime(n):
+# def printTwinPrime(n):
     # Create a boolean array "prime[0..n]"
     # and initialize all entries it as
     # true. A value in prime[i] will
@@ -103,7 +103,23 @@ def printTwinPrime(n):
 #     printTwinPrime(n)
 
 
-import datetime
-now = datetime.datetime.now()
-current_time = now.strftime("%H:%M:%S")
-print("Current Time =", current_time)
+# import datetime
+# now = datetime.datetime.now()
+# current_time = now.strftime("%H:%M:%S %p")
+# print("Current Time =", current_time)
+
+def moveEnd(arr, t):
+    k = 0
+    for i in range(len(arr)):
+        if arr[i] != t:
+            arr[k] = arr[i]
+            k += 1
+    for j in range(k, len(arr)):
+        arr[j] = t
+    return arr
+
+
+if __name__ == '__main__':
+    arr = [2,1,2,2,2,3,4,2]
+    t = 2
+    print(moveEnd(arr, t))
