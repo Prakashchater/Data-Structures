@@ -108,18 +108,37 @@
 # current_time = now.strftime("%H:%M:%S %p")
 # print("Current Time =", current_time)
 
-def moveEnd(arr, t):
-    k = 0
-    for i in range(len(arr)):
-        if arr[i] != t:
-            arr[k] = arr[i]
-            k += 1
-    for j in range(k, len(arr)):
-        arr[j] = t
-    return arr
+# def moveEnd(arr, t):
+#     k = 0
+#     for i in range(len(arr)):
+#         if arr[i] != t:
+#             arr[k] = arr[i]
+#             k += 1
+#     for j in range(k, len(arr)):
+#         arr[j] = t
+#     return arr
+#
+#
+# if __name__ == '__main__':
+#     arr = [2,1,2,2,2,3,4,2]
+#     t = 2
+#     print(moveEnd(arr, t))
 
+
+def moveEnd(arr, k):
+    i = 0
+    j = len(arr)-1
+    while i < j:
+        while i < j and arr[j] == k:
+            j-=1
+
+        if arr[i] == k:
+            arr[i], arr[j] = arr[j], arr[i]
+        i += 1
+    return arr
 
 if __name__ == '__main__':
     arr = [2,1,2,2,2,3,4,2]
-    t = 2
-    print(moveEnd(arr, t))
+    k = 2
+    print(moveEnd(arr, k))
+
