@@ -46,6 +46,15 @@ class BinaryTree(object):
             traversal += (str(start.data) + "-")
         return traversal
 
+# 1-2-4-5-3-6-7-        PreOrder
+# 4-2-5-1-6-3-7         InOrder
+# 4-2-5-6-3-7-1         PostOrder
+#               1
+#           /       \
+#          2          3
+#         /  \      /   \
+#        4    5     6   7
+
 tree = BinaryTree(1)
 tree.root.left = Node(2)
 tree.root.right = Node(3)
