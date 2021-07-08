@@ -46,9 +46,9 @@ class BinaryTree(object):
             traversal += (str(start.data) + "-")
         return traversal
 
-# 1-2-4-5-3-6-7-        PreOrder
-# 4-2-5-1-6-3-7         InOrder
-# 4-2-5-6-3-7-1         PostOrder
+# 1-2-4-5-3-6-7-8-9-       PreOrder
+# 4-2-5-1-6-3-8-7-9-       InOrder
+# 4-2-5-6-3-8-7-9-1-       PostOrder
 #               1
 #           /       \
 #          2          3
